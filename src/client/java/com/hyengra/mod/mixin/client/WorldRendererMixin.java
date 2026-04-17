@@ -9,16 +9,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-/**
- * Injeta nos pontos de render do WorldRenderer para 1.21.1.
- */
 @Mixin(WorldRenderer.class)
 public abstract class WorldRendererMixin {
 
-    @Inject(
-        method = "render(Lnet/minecraft/client/render/RenderTickCounter;ZLnet/minecraft/client/render/Camera;Lnet/minecraft/client/render/GameRenderer;Lnet/minecraft/client/util/math/Matrix4f;Lnet/minecraft/client/util/math/Matrix4f;)V",
-        at = @At("HEAD")
-    )
+    @Inject(method = "render", at = @At("HEAD"))
     private void hyengra$onRenderHead(
             RenderTickCounter tickCounter,
             boolean bl,
