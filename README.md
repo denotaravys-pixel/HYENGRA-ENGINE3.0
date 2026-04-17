@@ -1,9 +1,42 @@
-# Example Mod
+# Hyengra Engine
 
-## Setup
+Motor de render customizado para Minecraft 1.21.1 via Fabric.
 
-For setup instructions, please see the [Fabric Documentation page](https://docs.fabricmc.net/develop/getting-started/creating-a-project#setting-up) related to the IDE that you are using.
+## Stack
 
-## License
+| Componente | Versão |
+|---|---|
+| Minecraft | 1.21.1 |
+| Fabric Loader | 0.16.9 |
+| Fabric API | 0.110.0+1.21.1 |
+| Fabric Loom | 1.7.x |
+| Java | 21 |
+| Gradle | 8.8 |
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+## Build
+
+```bash
+./gradlew build
+```
+
+JAR gerado em `build/libs/hyengra-engine-1.0.0.jar`.
+
+## Estrutura
+
+```
+src/main/java/com/hyengra/mod/
+├── HyengraMod.java          ← entrypoint comum
+├── HyengaModClient.java     ← entrypoint cliente
+├── render/
+│   └── ChunkRenderer.java   ← motor gráfico (fase 1: stub)
+└── mixin/
+    └── client/
+        └── WorldRendererMixin.java  ← hook no WorldRenderer
+```
+
+## Roadmap
+
+- [x] Fase 1 — Build limpo + hook confirmado
+- [ ] Fase 2 — Cubo customizado na tela via BufferBuilder
+- [ ] Fase 3 — Pipeline de chunks próprio
+```
