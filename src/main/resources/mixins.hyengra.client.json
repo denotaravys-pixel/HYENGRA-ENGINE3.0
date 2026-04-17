@@ -2,6 +2,7 @@
   "required": true,
   "package": "com.hyengra.mod.mixin.client",
   "compatibilityLevel": "JAVA_21",
+  "refmap": "mixins.hyengra.client.refmap.json",
   "mixins": [],
   "client": [
     "WorldRendererMixin"
@@ -10,4 +11,3 @@
     "defaultRequire": 1
   }
 }
-
