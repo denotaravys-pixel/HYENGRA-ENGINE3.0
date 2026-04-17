@@ -9,7 +9,7 @@ public class HyengaModClient implements ClientModInitializer {
     public void onInitializeClient() {
         ChunkRenderer.init();
 
-        WorldRenderEvents.BEFORE_CHUNKS.register(context -> {
+        WorldRenderEvents.START.register(context -> {
             ChunkRenderer.onBeforeWorldRender(
                 context.camera(),
                 context.tickCounter()
