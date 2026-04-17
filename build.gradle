@@ -19,6 +19,11 @@ loom {
             sourceSet sourceSets.client
         }
     }
+
+    @Suppress("UnstableApiUsage")
+    mixin {
+        defaultRefmapName = "mixins.hyengra.refmap.json"
+    }
 }
 
 dependencies {
