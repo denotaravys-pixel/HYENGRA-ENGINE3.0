@@ -10,40 +10,15 @@ base {
     archivesName = project.archives_base_name
 }
 
-repositories {
-    // Fabric Maven
-}
-
-loom {
-    splitEnvironmentSourceSets()
-
-    mods {
-        "hyengra" {
-            sourceSet sourceSets.main
-            sourceSet sourceSets.client
-        }
-    }
-}
-
-fabricApi {
-    configureDataGeneration()
-}
-
 dependencies {
-    // Minecraft + Mappings
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-
-    // Fabric Loader
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
-    // Fabric API
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 }
 
 processResources {
     inputs.property "version", project.version
-
     filesMatching("fabric.mod.json") {
         expand "version": project.version
     }
@@ -54,16 +29,12 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 java {
-    // Gera jars de sources e javadoc automaticamente
     withSourcesJar()
-
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21
 }
 
 jar {
-    inputs.property "archivesName", project.archivesBaseName
-
     from("LICENSE") {
         rename { "${it}_${project.archivesBaseName}" }
     }
